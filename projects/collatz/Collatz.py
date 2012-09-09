@@ -39,10 +39,25 @@ def collatz_eval (i, j) :
     """
     assert i > 0
     assert j > 0
-    # <your code>
-    v = 1
-    assert v > 0
-    return v
+    int len = 0
+    int max = -1
+    for (int k = i; k <= j; k++) {
+        while (k > 1) {
+            if (k % 2 == 0) { //k is even
+                k = k + 2
+                len++
+            }
+            else {
+                k = (3*k) + 1
+                len++
+            }
+        }
+        if (len > max) {
+            max = len
+        }
+    }
+    assert (max >= 0)
+    return max
 
 # -------------
 # collatz_print
